@@ -4,6 +4,8 @@
   :diminish projectile-mode
   :bind ("C-c p" . projectile-command-map)
   :config
+  (when (file-directory-p "~/projects/programming")
+    (setq projectile-project-search-path '("~/projects/programming")))
   (setq projectile-switch-project-action #'consult-projectile)
   (projectile-mode))
 

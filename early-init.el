@@ -18,7 +18,7 @@
 (add-hook 'minibuffer-exit-hook #'restore-gc-)
 
 ;; change location for native compilation cache file
-(when (fboundp 'startup-redirect-eln-cache)
+(when (fboundp 'startup-redirect-eln-cache) and (file-directory-p "~/.emacs.d/etemp_data")
   (startup-redirect-eln-cache
     (convert-standard-filename
       (expand-file-name  "etemp_data/eln-cache/" user-emacs-directory))))

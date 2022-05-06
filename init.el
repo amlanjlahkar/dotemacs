@@ -1,4 +1,5 @@
 ;; -*- lexical-binding: t; -*-
+
 ;; keep user-emacs-directory clean with no-littering
 (use-package no-littering
   :init

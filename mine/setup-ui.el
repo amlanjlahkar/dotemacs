@@ -9,11 +9,23 @@
    (interactive)
    (setq buffer-face-mode-face '(:family "Liberation Sans" :height 100))
    (buffer-face-mode))
-(set-face-attribute 'default nil :family "Cascadia Code PL" :height 95)
+(set-face-attribute 'default nil :family "JetBrains Mono" :height 100)
 
 (use-package all-the-icons ;; all-the-icons install fonts upon first usage 
   :if (display-graphic-p))
-(load-theme 'modus-operandi)
+
+(use-package doom-modeline
+  :init
+  (doom-modeline-mode 1)
+  (setq doom-modeline-height 30
+        doom-modeline-major-mode-icon t
+        doom-modeline-buffer-state-icon t))
+
+(use-package doom-themes
+  :config
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-tomorrow-day t))
 
 ;; splash screen
 (use-package dashboard
