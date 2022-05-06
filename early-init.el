@@ -13,7 +13,7 @@
   (setq gc-cons-threshold most-positive-fixnum))
 (defun restore-gc-h ()
   (run-at-time
-   1 nil (lambda () (setq gc-cons-threshold doom-gc-cons-threshold))))
+   1 nil (lambda () (setq gc-cons-threshold most-positive-fixnum))))
 (add-hook 'minibuffer-setup-hook #'defer-gc-h)
 (add-hook 'minibuffer-exit-hook #'restore-gc-)
 
