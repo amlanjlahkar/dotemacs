@@ -7,9 +7,9 @@
 (defun mine/bface-mode-variable ()
    "set variable length font for current buffer"
    (interactive)
-   (setq buffer-face-mode-face '(:family "Liberation Sans" :height 100))
+   (setq buffer-face-mode-face '(:family "IBM Plex Serif" :height 100))
    (buffer-face-mode))
-(set-face-attribute 'default nil :family "JetBrains Mono" :height 105)
+(set-face-attribute 'default nil :family "IBM Plex Mono" :height 105)
 
 (use-package all-the-icons ;; all-the-icons install fonts upon first usage 
   :if (display-graphic-p))
@@ -26,7 +26,7 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-tomorrow-night t))
+  (load-theme 'doom-tomorrow-day t))
 
 ;; splash screen
 (use-package dashboard
@@ -39,8 +39,8 @@
         dashboard-projects-backend 'projectile
         dashboard-items '((projects . 3)
                           (recents . 5)))
-  (set-face-attribute 'dashboard-banner-logo-title nil :family "Liberation Sans" :height 110 :weight 'semi-bold)
-  (set-face-attribute 'dashboard-heading nil :family "Liberation Sans" :height 110 :weight 'normal)
+  (set-face-attribute 'dashboard-banner-logo-title nil :family "IBM Plex Serfi" :height 110 :weight 'semi-bold)
+  (set-face-attribute 'dashboard-heading nil :family "IBM Plex Serfi" :height 110 :weight 'normal)
   (set-face-attribute 'dashboard-items-face nil :weight 'normal)
 
   (add-hook 'dashboard-mode-hook

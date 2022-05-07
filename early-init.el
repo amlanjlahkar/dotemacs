@@ -17,18 +17,17 @@
 (add-hook 'minibuffer-setup-hook #'defer-gc-h)
 (add-hook 'minibuffer-exit-hook #'restore-gc-h)
 
-;; some initial prefs
-(setq inhibit-startup-message 1
-      inhibit-startup-echo-area-message 1
-      inhibit-startup-buffer-menu 1
-      initial-scratch-message ""
-      column-number-mode 1
-      cursor-in-non-selected-windows nil)
-(fringe-mode '(nil . 0))
+;; some initial ui changes
+(setq inhibit-startup-message t
+      inhibit-startup-screen t
+      inhibit-startup-echo-area-message t
+      inhibit-startup-buffer-menu t
+      initial-scratch-message "")
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (menu-bar-mode 1)
 (scroll-bar-mode -1)
+(fringe-mode '(nil . 0))
 (add-to-list 'default-frame-alist '(internal-border-width . 20))
 
 ;; bootstrap straight

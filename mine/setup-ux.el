@@ -23,12 +23,13 @@
   :config
   (marginalia-mode))
 
+
 ;; orderless filtering of completion entries
 (use-package orderless
   :after vertico
   :custom
-  (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles basic partial-completion)))))
+  (completion-styles '(orderless partial-completion))
+  (completion-category-overrides '((file (styles . (orderless partial-completion))))))
 
 (use-package consult
   :after vertico
