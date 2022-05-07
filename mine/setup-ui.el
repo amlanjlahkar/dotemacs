@@ -9,35 +9,40 @@
    (interactive)
    (setq buffer-face-mode-face '(:family "Liberation Sans" :height 100))
    (buffer-face-mode))
-(set-face-attribute 'default nil :family "JetBrains Mono" :height 100)
+(set-face-attribute 'default nil :family "JetBrains Mono" :height 105)
 
 (use-package all-the-icons ;; all-the-icons install fonts upon first usage 
   :if (display-graphic-p))
 
-(use-package doom-modeline
+(use-package nano-modeline
   :init
-  (doom-modeline-mode 1)
-  (setq doom-modeline-height 30
-        doom-modeline-major-mode-icon t
-        doom-modeline-buffer-state-icon t))
+  (setq nano-modeline-position "bottom"
+        nano-modeline-space-top 0.2
+        nano-modeline-space-bottom -0.3)
+  :config
+  (nano-modeline-mode))
 
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-tomorrow-day t))
+  (load-theme 'doom-tomorrow-night t))
 
 ;; splash screen
 (use-package dashboard
   :config
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
-        dashboard-startup-banner 'logo
+        dashboard-startup-banner "~/.emacs.d/gnu.png"
         dashboard-banner-logo-title "Welcome to emacs, Amlan"
         dashboard-center-content t
         dashboard-set-footer nil
         dashboard-projects-backend 'projectile
         dashboard-items '((projects . 3)
                           (recents . 5)))
+  (set-face-attribute 'dashboard-banner-logo-title nil :family "Liberation Sans" :height 110 :weight 'semi-bold)
+  (set-face-attribute 'dashboard-heading nil :family "Liberation Sans" :height 110 :weight 'normal)
+  (set-face-attribute 'dashboard-items-face nil :weight 'normal)
+
   (add-hook 'dashboard-mode-hook
         (lambda ()
           (make-local-variable 'mode-line-format)

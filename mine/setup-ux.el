@@ -8,8 +8,8 @@
       scroll-preserve-screen-position 1)
 
 ;; don't use tabs
-(setq default-tab-width 2
-      indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil
+              tab-width 2)
 
 ;; minimal completion system
 (use-package vertico

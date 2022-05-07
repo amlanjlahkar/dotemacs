@@ -15,13 +15,7 @@
   (run-at-time
    1 nil (lambda () (setq gc-cons-threshold most-positive-fixnum))))
 (add-hook 'minibuffer-setup-hook #'defer-gc-h)
-(add-hook 'minibuffer-exit-hook #'restore-gc-)
-
-;; change location for native compilation cache file
-(when (fboundp 'startup-redirect-eln-cache) and (file-directory-p "~/.emacs.d/etemp_data")
-  (startup-redirect-eln-cache
-    (convert-standard-filename
-      (expand-file-name  "etemp_data/eln-cache/" user-emacs-directory))))
+(add-hook 'minibuffer-exit-hook #'restore-gc-h)
 
 ;; some initial prefs
 (setq inhibit-startup-message 1
@@ -30,11 +24,12 @@
       initial-scratch-message ""
       column-number-mode 1
       cursor-in-non-selected-windows nil)
-(set-fringe-mode 10)
+(fringe-mode '(nil . 0))
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (menu-bar-mode 1)
 (scroll-bar-mode -1)
+(add-to-list 'default-frame-alist '(internal-border-width . 20))
 
 ;; bootstrap straight
 (defvar bootstrap-version)
