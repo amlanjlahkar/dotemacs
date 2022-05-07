@@ -3,21 +3,26 @@
 ;; use vim bindings for navigation using evil-mode
 (use-package evil
   :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  (setq evil-want-C-i-jump t)
+  (setq evil-want-integration t
+        evil-want-keybinding nil
+        evil-want-C-i-jump t
+        evil-undo-system 'undo-redo
+        evil-shift-width 2)
   :config
+  (add-hook 'evil-visual-state-entry-hook (lambda () (setq-local hl-line-mode nil)))
+  (add-hook 'evil-visual-state-exit-hook (lambda () (setq-local hl-line-mode t)))
   (evil-mode 1))
+
 (use-package evil-collection
   :after evil
   :config
   (evil-collection-init)
   (setq evil-cross-lines t
-	evil-move-beyond-eol t
-	evil-symbol-word-search t
-	evil-want-Y-yank-to-eol t
-	evil-cross-lines t
-	evil-echo-state nil))
+        evil-move-beyond-eol t
+        evil-symbol-word-search t
+        evil-want-Y-yank-to-eol t
+        evil-cross-lines t
+        evil-echo-state nil))
 
 ;; highlight yanked region
 ;; thanks to meain for the tip
