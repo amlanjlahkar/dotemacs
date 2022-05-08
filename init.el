@@ -1,5 +1,14 @@
 ;; -*- lexical-binding: t; -*-
 
+;; for measuring of startup time
+(defun mine/display-startup-time ()
+  (message "emacs started in %s with %d garbage collections."
+           (format "%.2f seconds"
+                   (float-time
+                   (time-subtract after-init-time before-init-time)))
+           gcs-done))
+(add-hook 'emacs-startup-hook #'mine/display-startup-time)
+
 ;; keep user-emacs-directory clean with no-littering
 (use-package no-littering
   :init
@@ -22,15 +31,16 @@
 (setq line-spacing 1)
 (setq column-number-mode 1)
 (setq cursor-in-non-selected-windows nil)
-(save-place-mode 1)
-(global-auto-revert-mode 1)
+(recentf-mode t)
+(save-place-mode t)
+(global-auto-revert-mode t)
 (setq global-auto-revert-non-file-buffers t)
 
 ;; external setups to be loaded(including packages)
 (add-to-list 'load-path "~/.emacs.d/mine/")
 (require 'setup-ui)
 (require 'setup-ux)
-(require 'setup-projects)
+;(require 'setup-projects)
 (require 'setup-evil)
 (require 'setup-completion)
 (require 'setup-lsp)

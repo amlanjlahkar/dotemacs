@@ -2,6 +2,7 @@
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'hl-line-mode)
+(setq display-line-numbers 'relative)
 
 ;; font setup
 (defun mine/bface-mode-variable ()
@@ -11,8 +12,15 @@
    (buffer-face-mode))
 (set-face-attribute 'default nil :family "IBM Plex Mono" :height 105)
 
-(use-package all-the-icons ;; all-the-icons install fonts upon first usage 
-  :if (display-graphic-p))
+(use-package emacs
+  :init
+  (setq modus-themes-italic-constructs t
+        modus-themes-bold-constructs nil
+        modus-themes-paren-match '(bold)
+        modus-themes-mode-line '(borderless)
+        modus-themes-region '(bg-only no-extend))
+  :config
+  (load-theme 'modus-vivendi))
 
 (use-package nano-modeline
   :init
@@ -20,40 +28,13 @@
         nano-modeline-space-top 0.2
         nano-modeline-space-bottom -0.3)
   :config
-  (nano-modeline-mode))
+  (nano-modeline-mode t))
 
-(use-package doom-themes
-  :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
-  (load-theme 'doom-tomorrow-day t))
-
-;; splash screen
-(use-package dashboard
-  :config
-  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
-        dashboard-startup-banner "~/.emacs.d/gnu.png"
-        dashboard-banner-logo-title "Welcome to emacs, Amlan"
-        dashboard-center-content t
-        dashboard-set-footer nil
-        dashboard-projects-backend 'projectile
-        dashboard-items '((projects . 3)
-                          (recents . 5)))
-  (set-face-attribute 'dashboard-banner-logo-title nil :family "IBM Plex Serfi" :height 110 :weight 'semi-bold)
-  (set-face-attribute 'dashboard-heading nil :family "IBM Plex Serfi" :height 110 :weight 'normal)
-  (set-face-attribute 'dashboard-items-face nil :weight 'normal)
-
-  (add-hook 'dashboard-mode-hook
-        (lambda ()
-          (make-local-variable 'mode-line-format)
-          (setq mode-line-format nil)))
-  (dashboard-setup-startup-hook))
-
-;; describe keybinds in real time
 (use-package which-key
   :diminish which-key-mode
   :config
-  (which-key-mode)
-  (setq which-key-idle-delay 1))
+  (setq which-key-idle-delay 1)
+  (setq which-key-frame-max-height 30)
+  (which-key-mode))
 
 (provide 'setup-ui)

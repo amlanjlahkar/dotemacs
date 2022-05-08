@@ -23,7 +23,7 @@
             (lambda ()
               (make-local-variable 'mode-line-format)
               (setq mode-line-format nil)))
-  (set-face-attribute 'treemacs-root-face nil :font "IBM Plex Serif" :height 120 :weight 'bold))
+  (set-face-attribute 'treemacs-root-face nil :font "IBM Plex Serif" :height 120 :weight 'bold)
 
 (use-package treemacs-all-the-icons
   :after treemacs

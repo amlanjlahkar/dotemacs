@@ -28,6 +28,7 @@
 (menu-bar-mode 1)
 (scroll-bar-mode -1)
 (fringe-mode '(nil . 0))
+(set-display-table-slot standard-display-table 0 ?\ )
 (add-to-list 'default-frame-alist '(internal-border-width . 20))
 
 ;; bootstrap straight
