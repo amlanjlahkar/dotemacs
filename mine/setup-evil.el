@@ -24,6 +24,12 @@
   :config
   (evil-collection-init))
 
+;; custom keybinds
+(defvar my-leader-map (make-sparse-keymap)
+  "Keymap for \"leader key\" shortcuts.")
+(define-key evil-normal-state-map (kbd "SPC") my-leader-map)
+(define-key my-leader-map "r" 'consult-recent-file)
+
 ;; highlight yanked region
 ;; thanks to meain for the tip
 (with-eval-after-load 'evil

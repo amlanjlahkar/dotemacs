@@ -44,3 +44,4 @@
 (require 'setup-evil)
 (require 'setup-completion)
 (require 'setup-lsp)
+(require 'setup-org)

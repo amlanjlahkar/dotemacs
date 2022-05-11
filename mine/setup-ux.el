@@ -11,7 +11,7 @@
 (setq-default indent-tabs-mode nil
               tab-width 2)
 
-;; minimal completion system
+;; Minibuffer Completion
 (use-package vertico
   :config
   (vertico-mode)
@@ -23,7 +23,6 @@
   :config
   (marginalia-mode))
 
-
 ;; orderless filtering of completion entries
 (use-package orderless
   :after vertico
@@ -31,12 +30,17 @@
   (completion-styles '(orderless partial-completion))
   (completion-category-overrides '((file (styles . (orderless partial-completion))))))
 
+;; Navigation and File management
 (use-package consult
   :after vertico
   :config
   (consult-customize
    consult-theme :preview-key nil
-   (autoload 'projectile-project-root "projectile")
-   (setq consult-project-function (lambda (_) (projectile-project-root)))))
+   (setq consult-project-function #'consult--default-project--function)))
+
+(use-package dired
+  :straight nil
+  :commands (dired dired-jump)
+  :custom ((dired-listing-switches "--group-directories-first -AlGh")))
 
 (provide 'setup-ux)
