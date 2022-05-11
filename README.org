@@ -1,0 +1,6 @@
+#+TITLE: My Emacs Configuration
+
+This repository contains the configurations I've done so far[fn:1] to provide myself a comfortable GNU Emacs experience.
+
+[fn:1] Special thanks to David Wilson for his amazing [[https://www.youtube.com/playlist?list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ][emacs from scratch]] playlist on youtube. The videos helped me a lot to understand the basic terminolgies related to emacs or elisp in general
+
