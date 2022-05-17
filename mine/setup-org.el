@@ -18,7 +18,7 @@
                   (org-level-4 . 1.17)
                   (org-level-5 . 1.08)
                   (org-level-6 . 1.00)))
-    (set-face-attribute (car face) nil :font "IBM Plex Serif" :weight 'semi-bold :height (cdr face)))
+    (set-face-attribute (car face) nil :font "Liberation Serif" :weight 'normal :height (cdr face)))
 
   ;; use fixed-pitch font for certain org faces
   (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)

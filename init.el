@@ -40,8 +40,9 @@
 (add-to-list 'load-path "~/.emacs.d/mine/")
 (require 'setup-ui)
 (require 'setup-ux)
-;(require 'setup-projects)
+(require 'setup-projects)
 (require 'setup-evil)
 (require 'setup-completion)
 (require 'setup-lsp)
 (require 'setup-org)
+

@@ -18,7 +18,8 @@
   (add-hook 'evil-visual-state-exit-hook (lambda () (setq-local hl-line-mode t)))
   (evil-mode 1))
 
-(use-package undo-fu)
+(use-package undo-fu
+  :straight (undo-fu :type git :host github :repo "emacsmirror/undo-fu")) 
 (use-package evil-collection
   :after evil
   :config

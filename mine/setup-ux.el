@@ -38,6 +38,11 @@
    consult-theme :preview-key nil
    (setq consult-project-function #'consult--default-project--function)))
 
+(use-package all-the-icons)
+(use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode)
+  :init (setq all-the-icons-dired-monochrome nil))
+
 (use-package dired
   :straight nil
   :commands (dired dired-jump)
