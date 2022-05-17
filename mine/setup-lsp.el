@@ -1,25 +1,20 @@
 ;; -*- lexical-binding: t; -*-
 
-(use-package lsp-mode
-  :init
-  (setq lsp-keymap-prefix "C-c l"
-        lsp-enable-symbol-highlighting nil
-        lsp-diagnostics-provider nil
-        lsp-modeline-diagnostics-enable nil
-        lsp-headerline-breadcrumb-icons-enable t
-        lsp-headerline-breadcrumb-enable-diagnostics nil
-        lsp-signature-render-documentation nil
-        lsp-completion-provider :none
-        lsp-log-io nil)
-  :commands (lsp lsp-deferred)
-  :config
-  (lsp-enable-which-key-integration t))
+;; preferences
+(setq eldoc-echo-area-use-multiline-p nil
+      flymake-start-on-flymake-mode nil
+      flymake-start-on-save-buffer nil
+      flymake-start-syntax-check-on-find-file nil)
 
-(use-package tree-sitter-langs)
-(use-package tree-sitter
-  :after lsp-mode
+;; use eglot for handling lsp servers
+(use-package eglot
+  :commands eglot-ensure
+  :init
+  (add-hook 'c-mode-hook 'eglot-ensure)
+  (add-hook 'c++-mode-hook 'eglot-ensure)
   :config
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+  (add-to-list 'eglot-server-programs
+               '((c-mode c++-mode) "clangd")))
+
 
 (provide 'setup-lsp)
