@@ -5,20 +5,24 @@
 (setq display-line-numbers-type 'relative)
 
 ;; font setup
-(set-face-attribute 'default nil :font "Iosevka SS17" :weight 'semi-light :height 105)
-(set-face-attribute 'fixed-pitch nil :font "Iosevka SS17" :height 1.0)
-(set-face-attribute 'variable-pitch nil :font "Liberation Sans")
+(set-face-attribute 'default nil :font "JuliaMono" :height 105)
+(set-face-attribute 'fixed-pitch nil :font "JuliaMono" :height 1.0)
+(set-face-attribute 'variable-pitch nil :font "Inter")
 
 (use-package emacs
   :init
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil
         modus-themes-paren-match '(bold)
-        modus-themes-mode-line nil
+        modus-themes-mode-line '3d
         modus-themes-org-blocks 'grey-background
         modus-themes-region '(bg-only no-extend))
   :config
-  (load-theme 'modus-operandi))
+  (load-theme 'modus-vivendi t))
+
+;; (use-package doom-themes
+;;   :config
+;;   (load-theme 'doom-zenburn t))
 
 (use-package mood-line
   :config
