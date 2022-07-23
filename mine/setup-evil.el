@@ -29,7 +29,9 @@
 (defvar my-leader-map (make-sparse-keymap)
   "Keymap for \"leader key\" shortcuts.")
 (define-key evil-normal-state-map (kbd "SPC") my-leader-map)
-(define-key my-leader-map "r" 'consult-recent-file)
+(define-key my-leader-map "cr" 'consult-recent-file)
+;; lsp related
+(define-key my-leader-map "fl" 'flymake-show-buffer-diagnostics)
 
 ;; highlight yanked region
 ;; thanks to meain for the tip

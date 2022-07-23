@@ -49,4 +49,3 @@
 (setq package-enable-at-startup nil
       straight-use-package-by-default t
       use-package-verbose t)
-

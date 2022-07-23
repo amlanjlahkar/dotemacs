@@ -9,7 +9,8 @@
 
 ;; don't use tabs
 (setq-default indent-tabs-mode nil
-              tab-width 2)
+              tab-width 2
+              truncate-lines +1)
 
 ;; Minibuffer Completion
 (use-package vertico

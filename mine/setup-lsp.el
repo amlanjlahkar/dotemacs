@@ -4,7 +4,8 @@
 (setq eldoc-echo-area-use-multiline-p nil
       flymake-start-on-flymake-mode nil
       flymake-start-on-save-buffer nil
-      flymake-start-syntax-check-on-find-file nil)
+      flymake-start-syntax-check-on-find-file nil
+      flymake-fringe-indicator-position nil)
 
 ;; use eglot for handling lsp servers
 (use-package eglot
@@ -15,6 +16,8 @@
   :config
   (add-to-list 'eglot-server-programs
                '((c-mode c++-mode) "clangd")))
+
+
 
 
 (provide 'setup-lsp)

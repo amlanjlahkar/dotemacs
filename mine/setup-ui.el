@@ -5,8 +5,8 @@
 (setq display-line-numbers-type 'relative)
 
 ;; font setup
-(set-face-attribute 'default nil :font "JuliaMono" :height 105)
-(set-face-attribute 'fixed-pitch nil :font "JuliaMono" :height 1.0)
+(set-face-attribute 'default nil :font "JetBrains Mono" :height 105)
+(set-face-attribute 'fixed-pitch nil :font "JetBrains Mono" :height 1.0)
 (set-face-attribute 'variable-pitch nil :font "Inter")
 
 (use-package emacs
@@ -14,16 +14,13 @@
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil
         modus-themes-paren-match '(bold)
-        modus-themes-mode-line '3d
+        ;; modus-themes-mode-line '3d
         modus-themes-org-blocks 'grey-background
         modus-themes-region '(bg-only no-extend))
   :config
-  (load-theme 'modus-vivendi t))
+  (load-theme 'modus-operandi t))
 
-;; (use-package doom-themes
-;;   :config
-;;   (load-theme 'doom-zenburn t))
-
+(use-package hide-mode-line)
 (use-package mood-line
   :config
   (mood-line-mode))
