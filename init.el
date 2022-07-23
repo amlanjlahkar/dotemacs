@@ -9,6 +9,19 @@
            gcs-done))
 (add-hook 'emacs-startup-hook #'mine/display-startup-time)
 
+;; some personal preferences
+(setq column-number-mode 1
+      cursor-in-non-selected-windows nil
+      global-auto-revert-non-file-buffers t
+      make-backup-files nil
+      auto-save-default nil
+      create-lockfiles nil)
+(recentf-mode t)
+(save-place-mode t)
+(global-auto-revert-mode t)
+(set-charset-priority 'unicode)
+(prefer-coding-system 'utf-8-unix)
+
 ;; keep user-emacs-directory clean with no-littering
 (use-package no-littering
   :init
@@ -27,15 +40,6 @@
   :init
   (gcmh-mode 1))
 
-;; some personal preferences
-(setq line-spacing 1)
-(setq column-number-mode 1)
-(setq cursor-in-non-selected-windows nil)
-(recentf-mode t)
-(save-place-mode t)
-(global-auto-revert-mode t)
-(setq global-auto-revert-non-file-buffers t)
-
 ;; external setups to be loaded(including packages)
 (add-to-list 'load-path "~/.emacs.d/mine/")
 (require 'setup-ui)
@@ -45,4 +49,4 @@
 (require 'setup-completion)
 (require 'setup-lsp)
 (require 'setup-org)
-
+(require 'setup-orgpublish)
